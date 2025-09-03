@@ -25,19 +25,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <title>Shine Smile</title>
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="header-top">
+                <!-- ------------------------------------------START Responsive------------------------------------------------ -->
+                <!-- tablet/mobile nav -->
+                <div class="mobile-table-nav">
+                    <input type="checkbox" name="mobile-checkbox" id="mobile-checkbox">
+                    <label class="mobile-menu-btn" for="mobile-checkbox">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                    <!-- overlay -->
+                    <label for="mobile-checkbox" class="menu-overlay"></label>
+                    
+                    <div class="drawer">
+                        <div class="drawer__top">
+                            <a href="./"><img src="./assets/img/Logo.svg" alt="smile smile" class="logo"></a>
+                            <label for="mobile-checkbox">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                            </label>
+                        </div>
+                        <ul id="navbar__list--mobi"></ul>
+                        <div class="separate"></div>
+                        <ul class="show-on-mobi">
+                            <li class="navbar__item">
+                                <a href="#!" class="navbar__link">Log In</a>
+                            </li>
+                            <li class="navbar__item">
+                                <a href="#!" class="navbar__link">Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ------------------------------------------END Responsive------------------------------------------------ -->
                 <!-- logo -->
-                <a href="./"><img src="./assets/img/Logo.svg" alt="smile smile" class="logo"></a>
+                <a href="./"><img src="./assets/img/Logo.svg" alt="smile smile" class="logo header__logo"></a>
                 <!-- nav -->
                 <nav class="navbar">
-                    <ul class="navbar__list">
+                    <ul class="navbar__list" id="navbar__list--pc">
                         <li class="navbar__item">
                             <a href="#!" class="navbar__link navbar__link--active">Home</a>
                         </li>
@@ -76,7 +108,7 @@
                         <img src="./assets/img/hero-2.jpg" alt="Exceptional dental care for all ages." class="hero__img hero__img-small">
                     </figure>
                  </div>
-            </section>
+            </section>         
         </div>
     </header>
     <main>
@@ -339,7 +371,7 @@
         <div class="container">
             <div class="footer__top">
                 <!-- column 1 -->
-                <div class="footer__col">                           
+                <div class="footer__col footer__hidden--tablet">                           
                     <a href="./"><img src="./assets/img/Logo.svg" alt="smile smile" class="logo"></a>
                     <p class="footer__desc">Exceptional dental care for all ages. Your great smile begins with a great dentist.</p>
                 </div>
@@ -403,5 +435,10 @@
             </div>
         </div>
     </footer>
+    <script>
+        const navPC = document.querySelector("#navbar__list--pc");
+        const navMobi = document.querySelector("#navbar__list--mobi");
+        navMobi.innerHTML = navPC.innerHTML;
+    </script>
 </body>
 </html>
